@@ -5,8 +5,10 @@ var cookieStorage = {
 			.map(function (cookie) {
 				return cookie.split('=');
 			})
-			.reduce(function (acc, [key, value]) {
-				return Object.assign(acc, { [key.trim()]: value });
+			.reduce(function (acc, curr) {
+				var k = curr[0];
+				var v = curr[1];
+				return Object.assign(acc, { [k.trim()]: v });
 			}, {});
 		return cookies[key];
 	},
